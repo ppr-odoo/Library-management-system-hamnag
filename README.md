@@ -5,10 +5,8 @@ This is a simple library management system that allows users to manage books, bo
 ## Features
 
 - Add, edit, and delete books
-- Add, edit, and delete borrowers
-- Record book transactions (check out, check in)
-- Search for books by title, author, or ISBN
-- Generate reports on book availability and borrower history
+- Add, edit, and delete authors
+
 
 ## Installation
 
