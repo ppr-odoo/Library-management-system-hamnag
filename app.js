@@ -10,6 +10,7 @@ const catalogRouter = require('./routes/catalog');
 
 const app = express();
 
+
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
@@ -17,7 +18,6 @@ const mongoDB = "mongodb://localhost:27017/library";
 main().catch((err) => console.log(err));
 async function main() {
 	await mongoose.connect(mongoDB);
-	console.log('Server is running at : http://localhost:3000')
 }
 
 // view engine setup
@@ -46,4 +46,7 @@ app.use(function (err, req, res, next) {
 	res.render('error');
 });
 
-module.exports = app;
+app.listen({
+	port: 3000
+});
+console.log('Server is running at : http://localhost:3000')

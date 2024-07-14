@@ -6,8 +6,8 @@
 	},
 	"private": true,
 	"scripts": {
-		"start": "node ./bin/www",
-		"dev": "nodemon ./bin/www",
+		"start": "node app.js",
+		"dev": "nodemon app.js",
 		"debugDev": "set DEBUG=Library-management-system:* && npm run dev"
 	},
 	"dependencies": {
