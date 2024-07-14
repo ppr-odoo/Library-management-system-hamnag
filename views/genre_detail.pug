@@ -1,30 +1,28 @@
 extends layout
 
 block content
+  include ./styles.pug
 
-  h1.page-title Genre: #{genre.name}
+  .container
+    h1.page-title Genre: #{genre.name}
 
-  div(style='margin-left:20px;margin-top:20px')
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Books
+      if genre_books.length
+        dl
+          each book in genre_books
+            dt
+              a(href=book.url) #{book.title}
+            dd #{book.summary}
+      else
+        p This genre has no books.
 
-    h4 Books
-    if genre_books.length
-      dl
-        each book in genre_books
-          dt
-            a(href=book.url) #{book.title}
-          dd #{book.summary}
-    else
-      p This genre has no books.
-    hr
-    div.update
-      a(href=genre.url+'/update') 
-        p
-          | Update genre 
-      span.material-symbols-outlined.update-pen
-        | edit
-    div.delete
-      a(href=genre.url+'/delete') 
-        p
-          | Delete genre
-      span.material-symbols-outlined.delete-icon
-        | delete
+      hr
+      div.update
+        a(href=genre.url+'/update')
+          p | Update genre
+        span.material-symbols-outlined.update-pen | edit
+      div.delete
+        a(href=genre.url+'/delete')
+          p | Delete genre
+        span.material-symbols-outlined.delete-icon | delete

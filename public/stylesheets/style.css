@@ -1,43 +1,35 @@
-/* Box sizing reset */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-/* Body reset */
 * {
-    margin: 0;
+	margin: 0;
 }
 
 body {
-    line-height: 1.6; /* Increased for better readability */
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
 }
 
-/* Responsive media */
 img,
 picture,
 video,
 canvas,
 svg {
-    max-width: 100%;
-    height: auto;
+	display: block;
+	max-width: 100%;
 }
 
-/* Form elements reset */
 input,
 button,
 textarea,
 select {
-    font: inherit;
+	font: inherit;
 }
 
-/* Typography adjustments */
 p,
 h1,
 h2,
@@ -45,127 +37,179 @@ h3,
 h4,
 h5,
 h6 {
-    overflow-wrap: break-word;
-    margin-bottom: 1rem; /* Improved spacing between paragraphs */
+	overflow-wrap: break-word;
 }
 
-/* Root variables */
+#root,
+#__next {
+	isolation: isolate;
+}
+
 :root {
-    font-size: 17px;
-
-    --background-color: #edf4f2;
-    --sidebar-color: #31473a;
-    --header-color: #fb6542;
-    --text-color: #2f4f4f;
-    --link-color: #4d5c5c;
-    --link-hover-color: #735da5;
+	font-size: 17px;
+	--background-color: #edf4f2;
+	--sidebar-color: #31473a;
+	--header-color: #fb6542;
+	--text-color: #2f4f4f;
+	--link-color: #4d5c5c;
+	--link-hover-color: #735da5;
+	--sidebar-color:#4CAF50;
+	--sidebar-hover-color: #08550a;
 }
 
-/* Links styling */
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: 'Roboto', sans-serif;
+}
+
+hr {
+	border-color: #101820;
+}
+
 a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+	color: var(--link-color);
 }
 
 a:hover {
-    color: var(--link-hover-color);
+	color: var(--link-hover-color);
 }
 
-/* Containers */
 .container {
-    padding: 15px;
+	padding-top: 15px;
 }
 
-/* Sidebar */
 .sidebar-nav {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners for better aesthetic */
-    font-size: 18px;
-    list-style: none;
-    background-color: var(--sidebar-color);
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100vh;
+	padding: 20px;
+	list-style: none;
+	background-color: var(--sidebar-color);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
-.sidebar-library-header {
-    font-weight: bold;
-    font-size: 24px; /* Smaller header size */
-    margin-bottom: 10px; /* Reduced margin for cleaner look */
+.sidebar-nav>li {
+	margin-bottom: 8px;
 }
 
-.sidebar-nav > li > a {
-    color: white;
-    display: block;
-    padding: 8px 0;
-    transition: background-color 0.3s ease;
+.sidebar-nav>li:last-child {
+	margin-bottom: 0;
 }
 
-.sidebar-nav > li > a:hover {
-    background-color: #3e5a49; /* Darker shade on hover */
+.sidebar-nav>li>a {
+	color: white;
+	display: block;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	text-decoration: none;
 }
 
-/* Page Titles */
+.sidebar-nav>li>a:hover {
+	background-color: var(--sidebar-hover-color);
+	color: white;
+}
+
+.sidebar-nav>li>a.active {
+	background-color: var(--active-link-color);
+	color: #101820;
+}
+
+.sidebar-nav>li>hr {
+	border-color: white;
+}
+
+.author-link-sidebar {
+	margin-top: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.devicon-github-original {
+	font-size: 30px;
+}
+
+.github-link-sidebar {
+	color: white;
+	transition: transform 0.15s ease;
+}
+
+.github-link-sidebar:hover {
+	text-decoration: none;
+	transform: scale(1.1) ;
+	color: white;
+}
 .page-title {
-    font-size: 3rem; /* Responsive font size */
-    font-weight: bold;
-    color: var(--header-color);
-    margin-bottom: 20px; /* Increased spacing below title */
+	font-size: 70px;
+	font-weight: bold;
+	color: var(--header-color);
 }
 
-/* Home Section */
 .home-title {
-    font-size: 5rem; /* Larger font size */
-    font-weight: bold;
-    margin-bottom: 1rem; /* Slight spacing adjustment */
-}
-
-.house-icon {
-    font-size: 4rem; /* Smaller icon size */
-    margin-right: 10px; /* Improved alignment with text */
+	display: flex;
+	align-items: flex-end;
+	gap: 15px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 120px;
 }
 
 .welcome {
-    font-size: 2.5rem; /* Slightly reduced font size */
-    margin-bottom: 20px; /* Better spacing */
+	font-size: 55px;
 }
 
-/* Footer */
+.house-icon {
+	font-size: 90px;
+}
+
+.count-title {
+	margin-top: 30px;
+	font-size: 24px;
+}
+
+.home-count > li {
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
 .built-by {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    right: 20px;
-    font-family: 'Satisfy', cursive;
-    color: var(--text-color);
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	bottom: 0px;
+	right: 20px;
+	font-family: 'Satisfy', cursive;
 }
 
 .github-link-footer {
-    transition: transform 0.15s linear;
+	transition: transform 0.15s linear;
 }
 
 .github-link-footer:hover {
-    transform: scale(1.1);
+	text-decoration: none;
+	transform: scale(1.1);
+	color: var(--text-color);
 }
 
-/* Update and Delete Actions */
 .update,
 .delete {
-    display: inline-flex; /* Changed to inline-flex for better alignment */
-    align-items: center;
-    gap: 5px; /* Reduced gap for compact look */
-    margin-bottom: 10px; /* Added margin for separation */
+	display: flex;
+	gap: 10px;
 }
 
 .update-pen,
 .delete-icon {
-    font-size: 1.2rem; /* Adjusted icon size */
+	font-size: 22px;
 }
 
-/* Error List */
 .error-list {
-    margin-top: 1rem; /* Slight margin adjustment */
+	margin-top: 30px;
 }
