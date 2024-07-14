@@ -17,6 +17,7 @@ const mongoDB = "mongodb://localhost:27017/library";
 main().catch((err) => console.log(err));
 async function main() {
 	await mongoose.connect(mongoDB);
+	console.log('Server is running at : http://localhost:3000')
 }
 
 // view engine setup
