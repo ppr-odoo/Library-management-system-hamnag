@@ -1,16 +1,86 @@
 extends layout
 
 block content
-  h1.home-title.page-title= title
-    p.house-icon 
-      | 🏠
-  h1.welcome #[strong Welcome to the dashboard]
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .home-title {
+      text-align: center;
+      font-size: 36px;
+      color: #4CAF50;
+    }
+    .house-icon {
+      font-size: 24px;
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .welcome {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
+    .count-title {
+      font-size: 18px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .home-count {
+      list-style-type: none;
+      padding-left: 0;
+      text-align: center;
+    }
+    .home-count li {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #555;
+    }
+    .image-gallery {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .image-gallery img {
+      width: 150px;
+      height: 150px;
+      margin: 0 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      margin: 20px 20px;
+      font-size: 14px;
+      color: #999;
+    }
 
-  p.count-title The library has the following record counts:
-
-  ul.home-count
-    li #[strong Books:] !{book_count}
-    li #[strong Copies:] !{book_instance_count}
-    li #[strong Copies available:] !{book_instance_available_count}
-    li #[strong Authors:] !{author_count}
-    li #[strong Genres:] !{genre_count}
+  .container
+    h1.home-title.page-title= title
+      p.house-icon 🏠
+    h1.welcome #[strong Welcome to the dashboard]
+    p.count-title The library has the following record counts:
+    ul.home-count
+      li #[strong Books:] !{book_count}
+      li #[strong Copies:] !{book_instance_count}
+      li #[strong Copies available:] !{book_instance_available_count}
+      li #[strong Authors:] !{author_count}
+      li #[strong Genres:] !{genre_count}
+    .image-gallery
+      img(src='/src/1.jpg', alt='Image 1')
+      img(src='/src/2.jpg', alt='Image 2')
+      img(src='/src/3.jpg', alt='Image 3')
+    .footer
+      | © 2024 Library Management System. All rights reserved.
