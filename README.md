@@ -40,6 +40,7 @@ Organizes books into different categories, making it easier for users to search 
 
 ## Project Structure
 
+```plaintext
 Library-management-system/
 ├── node_modules/
 ├── public/
