@@ -19,7 +19,14 @@ html(lang='en')
       div(class='row')
         div(class='col-sm-2')
           block sidebar
+            // Menu button to toggle sidebar
+      
             ul(class='sidebar-nav')
+              button.menu-button(type='button')
+                svg.xmlns(width='24', height='24', viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-linejoin='round', class='lucide lucide-align-justify')
+                  line(x1='3', x2='21', y1='6', y2='6')
+                  line(x1='3', x2='21', y1='12', y2='12')
+                  line(x1='3', x2='21', y1='18', y2='18')
               li.home
                 a(href='/catalog') Home
                 //span.material-symbols-outlined.home-icon
@@ -45,6 +52,6 @@ html(lang='en')
               li.author-link-sidebar
                 a(href='https://github.com/thekrishpatel/Library-management-system', class='github-link-sidebar' align='center')
                   i.devicon-github-original
-
         div(class='col-sm-10 container')
           block content
+    script(src='/javascripts/script.js')

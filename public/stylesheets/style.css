@@ -52,13 +52,15 @@ h6 {
 /* Root variables */
 :root {
     font-size: 17px;
-
     --background-color: #edf4f2;
-    --sidebar-color: #31473a;
-    --header-color: #fb6542;
-    --text-color: #2f4f4f;
-    --link-color: #4d5c5c;
-    --link-hover-color: #735da5;
+	--sidebar-color: #31473a;
+	--header-color: #fb6542;
+	--text-color: #2f4f4f;
+	--link-color: #4d5c5c;
+	--link-hover-color: #735da5;
+	--sidebar-color:#4CAF50;
+	--sidebar-hover-color: #08550a;
+
 }
 
 /* Links styling */
@@ -79,31 +81,101 @@ a:hover {
 
 /* Sidebar */
 .sidebar-nav {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners for better aesthetic */
-    font-size: 18px;
-    list-style: none;
-    background-color: var(--sidebar-color);
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100vh;
+	padding: 20px;
+	list-style: none;
+	background-color: var(--sidebar-color);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+    transition: .2s ease-in-out;
+    z-index: 999;
 }
 
-.sidebar-library-header {
-    font-weight: bold;
-    font-size: 24px; /* Smaller header size */
-    margin-bottom: 10px; /* Reduced margin for cleaner look */
+/* CSS for sidebar toggle and sidebar */
+.menu-button {
+    position: fixed;
+    top: -10px;
+    left: -60px;
+    z-index: 1000;
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: .2s ease-in-out;
 }
 
-.sidebar-nav > li > a {
-    color: white;
-    display: block;
-    padding: 8px 0;
-    transition: background-color 0.3s ease;
+.sidebar-nav.open {
+    left: 0px;
 }
 
-.sidebar-nav > li > a:hover {
-    background-color: #3e5a49; /* Darker shade on hover */
+@media (max-width: 1050px){
+    .menu-button{
+        left:0px;
+    }
+    .sidebar-nav {
+        left: -220px;
+    }
+}
+
+.sidebar-nav>li {
+	margin-bottom: 8px;
+}
+
+.sidebar-nav>li:last-child {
+	margin-bottom: 0;
+}
+
+.sidebar-nav>li>a {
+	color: white;
+	display: block;
+	padding: 10px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	text-decoration: none;
+}
+
+.sidebar-nav>li>a:hover {
+	background-color: var(--sidebar-hover-color);
+	color: white;
+}
+
+.sidebar-nav>li>a.active {
+	background-color: var(--active-link-color);
+	color: #101820;
+}
+
+.sidebar-nav>li>hr {
+	border-color: white;
+}
+
+.author-link-sidebar {
+	margin-top: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.devicon-github-original {
+	font-size: 30px;
+}
+
+.github-link-sidebar {
+	color: white;
+	transition: transform 0.15s ease;
+}
+
+.github-link-sidebar:hover {
+	text-decoration: none;
+	transform: scale(1.1) ;
+	color: white;
 }
 
 /* Page Titles */
